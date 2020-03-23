@@ -2,6 +2,7 @@ package com.example.lab4v3;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
 
@@ -25,6 +26,22 @@ public class DeleteDialog extends DialogFragment {
 
     private OnDeleteDialogInteractionListener mListener;
 
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        if (context instanceof OnDeleteDialogInteractionListener) {
+            mListener = (OnDeleteDialogInteractionListener) context;
+        } else {
+            throw new RuntimeException(context.toString()
+                    + " must implement OnDeleteDialogInteractionListener");
+        }
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        mListener = null;
+    }
     public DeleteDialog() {
         // Required empty public constructor
     }
@@ -44,12 +61,7 @@ public class DeleteDialog extends DialogFragment {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 // Notify the OnDeleteDialogInteractionListener interface of postivie button click
-                try{
                     mListener.onDialogPostivieClick(DeleteDialog.this);
-                }
-                catch (NullPointerException a){
-
-                }
             }
         });
         // Set the text and cation for the negative button click
