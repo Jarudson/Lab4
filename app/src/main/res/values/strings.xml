@@ -5,7 +5,15 @@
     <string name="add_task">add_task</string>
     <string name="default_title">default_title</string>
     <string name="default_description">default_description</string>
-    <string name="item_selected_mgs">item_selected_msg</string>
+    <string name="item_selected_msg">item_selected_msg</string>
+    <string name="delete_question">delete_question</string>
+    <string name="dialog_confirm">dialog_confirm</string>
+    <string name="dialog_cancel">dialog_cancel</string>
+    <string name="delete_dialog_tag">delete_dialog_tag</string>
+    <string name="long_click_msg">long_click_msg</string>
+    <string name="delete_cancel_msg">delete_cancel_msg</string>
+    <string name="retry_msg">retry_msg</string>
+    <string name="empty_fragment">empty_fragment</string>
 
     <string-array name="images">
         <item>drawable 1</item>

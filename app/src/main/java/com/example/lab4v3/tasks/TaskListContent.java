@@ -35,6 +35,15 @@ public class TaskListContent {
         }
     }
 
+    public static void removeItem(int position){
+        // Get the id to locate the item in the items map
+        String itemId = ITEMS.get(position).id;
+        // remove the item from List
+        ITEMS.remove(position);
+        // remove the item from map
+        ITEM_MAP.remove(itemId);
+    }
+
     public static void addItem(Task item) {
         ITEMS.add(item);
         ITEM_MAP.put(item.id, item);

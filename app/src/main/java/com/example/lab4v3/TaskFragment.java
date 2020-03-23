@@ -1,8 +1,14 @@
 package com.example.lab4v3;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -44,7 +50,7 @@ public class TaskFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_task_list, container, false);
 
@@ -64,7 +70,7 @@ public class TaskFragment extends Fragment {
 
 
     @Override
-    public void onAttach(Context context) {
+    public void onAttach(@NonNull Context context) {
         super.onAttach(context);
         if (context instanceof onListFragmentClickInteraction) {
             mListener = (onListFragmentClickInteraction) context;
@@ -93,11 +99,8 @@ public class TaskFragment extends Fragment {
     public interface onListFragmentClickInteraction {
         // TODO: Update argument type and name
         void onListFragmentClickInteraction(TaskListContent.Task task, int position);
-
         void onListFragmentLongClickInteraction(int position);
     }
 
-    public interface OnListFragmentInteractionListener {
-        void onListFragmentInteraction(TaskListContent.Task task, int position);
-    }
+
 }
